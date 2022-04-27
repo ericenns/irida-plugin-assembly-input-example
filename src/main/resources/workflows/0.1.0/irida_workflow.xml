@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iridaWorkflow>
+  <id>093a602b-11b1-46ca-a140-9163fed6e9fa</id>
+  <name>AssemblyQuality</name>
+  <version>0.1.0</version>
+  <analysisType>ASSEMBLY_QUALITY</analysisType>
+  <inputs>
+    <genomeAssemblies>genome_assembly</genomeAssemblies>
+    <requiresSingleSample>true</requiresSingleSample>
+  </inputs>
+  <parameters>
+    <parameter name="quast-1-al.upper_bound_min_con" defaultValue="2">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.upper_bound_min_con" label="Minimal number of 'connecting reads' needed for joining upper bound contigs into a scaffold" type="integer"/>
+    </parameter>
+    <parameter name="quast-1-al.min_alignment" defaultValue="65">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.min_alignment" label="Minimum length of alignment" type="integer"/>
+    </parameter>
+    <parameter name="quast-1-genes.rna_finding" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="genes.rna_finding" label="Enables ribosomal RNA gene finding?" type="boolean"/>
+    </parameter>
+    <parameter name="quast-1-al.ambiguity_score" defaultValue="0.99">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.ambiguity_score" label="Score S for defining equally good alignments of a single contig" type="float"/>
+    </parameter>
+    <parameter name="quast-1-al.use_all_alignments" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.use_all_alignments" label="Use all alignments as in QUAST v.1.*. to compute genome fraction, # genomic features, # operons metrics?" type="boolean"/>
+    </parameter>
+    <parameter name="quast-1-assembly.ref.use_ref" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="assembly.ref.use_ref"/>
+    </parameter>
+    <parameter name="quast-1-al.fragmented_max_indent" defaultValue="50">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.fragmented_max_indent" label="Mark translocation as fake if both alignments are located no further than N bases from the ends of the reference fragments" type="integer"/>
+    </parameter>
+    <parameter name="quast-1-al.min_identity" defaultValue="95.0">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.min_identity" label="Minimum IDY% considered as proper alignment" type="float"/>
+    </parameter>
+    <parameter name="quast-1-al.fragmented" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.fragmented" label="Use all alignments as in QUAST v.1.*. to compute genome fraction, # genomic features, # operons metrics?" type="boolean"/>
+    </parameter>
+    <parameter name="quast-1-genes.conserved_genes_finding" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="genes.conserved_genes_finding" label="Enables search for Universal Single-Copy Orthologs using BUSCO?" type="boolean"/>
+    </parameter>
+    <parameter name="quast-1-assembly.type" defaultValue="genome">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="assembly.type" label="Type of assembly" type="select"/>
+    </parameter>
+    <parameter name="quast-1-k_mer.k_mer_stats" defaultValue="">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="k_mer.k_mer_stats" label="Compute k-mer-based quality metrics?" type="select"/>
+    </parameter>
+    <parameter name="quast-1-assembly.ref.est_ref_size" defaultValue="">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="assembly.ref.est_ref_size"/>
+    </parameter>
+    <parameter name="quast-1-al.ambiguity_usage" defaultValue="one">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.ambiguity_usage" label="How processing equally good alignments of a contig (probably repeats)?" type="select"/>
+    </parameter>
+    <parameter name="quast-1-assembly.orga_type" defaultValue="">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="assembly.orga_type" label="Type of organism" type="select"/>
+    </parameter>
+    <parameter name="quast-1-al.upper_bound_assembly" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="al.upper_bound_assembly" label="Simulate upper bound assembly based on the reference genome and a given set reads?" type="boolean"/>
+    </parameter>
+    <parameter name="quast-1-in.custom" defaultValue="false">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="in.custom" label="Use customized names for the input files?" type="select"/>
+    </parameter>
+    <parameter name="quast-1-genes.gene_finding.tool" defaultValue="none">
+      <toolParameter toolId="978d96e3-8215-4756-868d-8846a8161884" parameterName="genes.gene_finding.tool" label="Tool for gene prediction" type="select"/>
+    </parameter>
+  </parameters>
+  <outputs>
+    <output name="quast.log" fileName="quast.log"/>
+    <output name="quast.tsv" fileName="quast.tsv"/>
+    <output name="quast.html.zip" fileName="quast.html.zip"/>
+    <output name="quast.pdf" fileName="quast.pdf"/>
+  </outputs>
+  <toolRepositories>
+    <repository>
+      <name>quast</name>
+      <owner>iuc</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>ebb0dcdb621a</revision>
+    </repository>
+  </toolRepositories>
+</iridaWorkflow>

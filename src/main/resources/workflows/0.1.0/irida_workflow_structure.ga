@@ -1,0 +1,144 @@
+{
+  "a_galaxy_workflow" : "true",
+  "annotation" : "",
+  "format-version" : "0.1",
+  "name" : "Assembly Quality",
+  "steps" : {
+    "0" : {
+      "workflow_outputs" : [ {
+        "label" : null,
+        "output_name" : "output",
+        "uuid" : "ec1c7af7-ef8e-462a-9e1e-bf91f0318ec2"
+      } ],
+      "input_connections" : { },
+      "label" : "genome_assembly",
+      "id" : 0,
+      "tool_state" : "{\"optional\": false, \"format\": [\"fasta\"]}",
+      "errors" : null,
+      "position" : {
+        "bottom" : 252.671875,
+        "height" : 82.171875,
+        "left" : 360.5,
+        "right" : 560.5,
+        "top" : 170.5,
+        "width" : 200,
+        "x" : 360.5,
+        "y" : 170.5
+      },
+      "name" : "Input dataset",
+      "uuid" : "44f19a69-d611-41fd-b9d2-eb0c2a076cdf",
+      "outputs" : [ ],
+      "type" : "data_input",
+      "tool_version" : null,
+      "annotation" : "",
+      "inputs" : [ {
+        "description" : "",
+        "name" : "genome_assembly"
+      } ],
+      "content_id" : null,
+      "tool_id" : null
+    },
+    "1" : {
+      "workflow_outputs" : [ {
+        "label" : "Quast on input dataset(s): tabular report",
+        "output_name" : "quast_tabular",
+        "uuid" : "7dc301dc-06f9-4293-a84b-f0e4f231a9e6"
+      }, {
+        "label" : "Quast on input dataset(s):  HTML report",
+        "output_name" : "report_html",
+        "uuid" : "03ee516e-7775-43cd-8e8d-9835545e02d3"
+      }, {
+        "label" : "Quast on input dataset(s):  PDF report",
+        "output_name" : "report_pdf",
+        "uuid" : "874eef83-ebb9-48d6-9a02-b155e2ce4c89"
+      }, {
+        "label" : "Quast on input dataset(s): Log",
+        "output_name" : "log",
+        "uuid" : "9f36c9f2-178e-48db-a5d1-e593add3fc1f"
+      } ],
+      "input_connections" : {
+        "in|inputs" : {
+          "id" : 0,
+          "output_name" : "output"
+        }
+      },
+      "label" : null,
+      "id" : 1,
+      "tool_state" : "{\"al\": {\"use_all_alignments\": \"false\", \"min_alignment\": \"65\", \"min_identity\": \"95.0\", \"ambiguity_usage\": \"one\", \"ambiguity_score\": \"0.99\", \"fragmented\": \"false\", \"fragmented_max_indent\": \"50\", \"upper_bound_assembly\": \"false\", \"upper_bound_min_con\": \"2\"}, \"assembly\": {\"type\": \"genome\", \"__current_case__\": 0, \"ref\": {\"use_ref\": \"false\", \"__current_case__\": 1, \"est_ref_size\": \"\"}, \"orga_type\": \"\"}, \"circos\": \"false\", \"contig_thresholds\": \"0,1000\", \"extensive_mis_size\": \"1000\", \"genes\": {\"gene_finding\": {\"tool\": \"none\", \"__current_case__\": 0}, \"rna_finding\": \"false\", \"conserved_genes_finding\": \"false\"}, \"in\": {\"custom\": \"false\", \"__current_case__\": 1, \"inputs\": {\"__class__\": \"RuntimeValue\"}}, \"k_mer\": {\"k_mer_stats\": \"\", \"__current_case__\": 1}, \"large\": \"false\", \"min_contig\": \"500\", \"scaffold_gap_max_size\": \"1000\", \"skip_unaligned_mis_contigs\": \"true\", \"split_scaffolds\": \"false\", \"strict_NA\": \"false\", \"unaligned_part_size\": \"500\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+      "errors" : null,
+      "position" : {
+        "bottom" : 452.90625,
+        "height" : 265.90625,
+        "left" : 702,
+        "right" : 902,
+        "top" : 187,
+        "width" : 200,
+        "x" : 702,
+        "y" : 187
+      },
+      "name" : "Quast",
+      "uuid" : "978d96e3-8215-4756-868d-8846a8161884",
+      "outputs" : [ {
+        "name" : "quast_tabular",
+        "type" : "tabular"
+      }, {
+        "name" : "report_html",
+        "type" : "html"
+      }, {
+        "name" : "report_pdf",
+        "type" : "pdf"
+      }, {
+        "name" : "log",
+        "type" : "txt"
+      } ],
+      "tool_shed_repository" : {
+        "changeset_revision" : "ebb0dcdb621a",
+        "name" : "quast",
+        "owner" : "iuc",
+        "tool_shed" : "toolshed.g2.bx.psu.edu"
+      },
+      "type" : "tool",
+      "tool_version" : "5.0.2+galaxy1",
+      "annotation" : "",
+      "inputs" : [ {
+        "description" : "runtime parameter for tool Quast",
+        "name" : "in"
+      } ],
+      "post_job_actions" : {
+        "RenameDatasetActionlog" : {
+          "action_arguments" : {
+            "newname" : "quast.log"
+          },
+          "action_type" : "RenameDatasetAction",
+          "output_name" : "log"
+        },
+        "RenameDatasetActionquast_tabular" : {
+          "action_arguments" : {
+            "newname" : "quast.tsv"
+          },
+          "action_type" : "RenameDatasetAction",
+          "output_name" : "quast_tabular"
+        },
+        "RenameDatasetActionreport_html" : {
+          "action_arguments" : {
+            "newname" : "quast.html.zip"
+          },
+          "action_type" : "RenameDatasetAction",
+          "output_name" : "report_html"
+        },
+        "RenameDatasetActionreport_pdf" : {
+          "action_arguments" : {
+            "newname" : "quast.pdf"
+          },
+          "action_type" : "RenameDatasetAction",
+          "output_name" : "report_pdf"
+        }
+      },
+      "content_id" : "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2+galaxy1",
+      "tool_id" : "toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/5.0.2+galaxy1"
+    }
+  },
+  "tags" : [ ],
+  "uuid" : "093a602b-11b1-46ca-a140-9163fed6e9fa",
+  "version" : 2
+}
